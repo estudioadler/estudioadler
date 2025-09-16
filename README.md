@@ -59,7 +59,7 @@ Meu objetivo é crescer como desenvolvedor, contribuindo para projetos desafiado
 
 <br/>
 
-<a href="https://github.com/devadler" title="Perfil do Adler">
+<a href="https://github.com/estudioadler" title="Perfil do Adler">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=devadler&theme=dracula&show_icons=true" />
 </a>
 
