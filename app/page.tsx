@@ -1,19 +1,25 @@
-import { Button } from "@/components/ui/button"
+import FAQ from "@/components/faq"
+import { Features } from "@/components/feature-section"
+import {Hero} from "@/components/hero"
+import {Services} from "@/components/services-section"
 
-export default function Page() {
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Estúdio Adler | Criação de Sites, E-commerce e Identidade Visual",
+  description:
+    "Transformamos sua ideia em presença digital. Sites profissionais, lojas virtuais e identidade visual para marcas que querem se destacar.",
+  alternates: { canonical: "/" },
+}
+
+export default function Home() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <Services />
+      <Features />
+      
+      <FAQ />
+    </>
   )
 }
