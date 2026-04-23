@@ -5,11 +5,9 @@ import { cn } from "@/lib/utils"
 import { Metadata } from "next"
 import Header from "@/components/header"
 import { Footer } from "@/components/footer"
-import PixelTransition from "@/components/transition/pixel-transition"
 import { Marquee } from "@/components/marquee"
 import { CTA } from "@/components/cta-section"
 import { FloatingActions } from "@/components/floating-actions"
-
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
 
 const unbounded = Unbounded({
@@ -212,7 +210,6 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-neutral-950 selection:bg-blue-950 selection:text-white"
       >
-        <PixelTransition />
         <Header />
         {children}
         <div className="flex flex-col">

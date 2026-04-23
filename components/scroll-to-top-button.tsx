@@ -18,7 +18,7 @@ export function ScrollToTopButton({ onClick, variant = "dark" }: ScrollToTopButt
       <button
         onClick={onClick}
         aria-label="Voltar ao topo"
-        className={`${styles[variant]} cursor-pointer group relative inline-flex items-center justify-center overflow-hidden outline p-3 text-sm font-medium transition`}
+        className={`${styles[variant]} cursor-pointer group relative inline-flex items-center justify-center overflow-hidden border border-muted-foreground p-3 text-sm font-medium transition`}
       >
         <div className="relative h-5 w-5 overflow-hidden">
           <div className="absolute transition-all duration-200 group-hover:-translate-y-8">

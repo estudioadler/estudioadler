@@ -82,7 +82,7 @@ export function Marquee() {
 }, [])
 
   return (
-    <section className="w-full bg-blue-950 text-white">
+    <section data-header-theme="dark" className="w-full bg-blue-950 text-white">
       <div className="overflow-hidden">
         <div
           ref={track2Ref}

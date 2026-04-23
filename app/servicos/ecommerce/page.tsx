@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { PageHero } from "@/components/page-hero"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "E-commerce",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
       "Lojas virtuais completas, seguras e prontas para vender. Converta visitantes em clientes.",
     url: "https://estudioadler.com.br/servicos/ecommerce",
   },
-};
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -27,7 +28,7 @@ const jsonLd = {
   url: "https://estudioadler.com.br/servicos/ecommerce",
   areaServed: "BR",
   serviceType: "Desenvolvimento de E-commerce",
-};
+}
 
 export default function EcommercePage() {
   return (
@@ -36,13 +37,17 @@ export default function EcommercePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section>
-        <h1>E-commerce</h1>
-        <p>
-          Sua loja virtual do jeito certo: segura, fácil de gerenciar e
-          otimizada para vender.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="Serviços"
+        title={
+          <>
+            Sua loja.
+            <br />
+            Do jeito certo.
+          </>
+        }
+        subtitle="E-commerces desenvolvidos para converter — não só para existir."
+      />
     </main>
-  );
+  )
 }

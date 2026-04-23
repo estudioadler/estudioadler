@@ -17,7 +17,7 @@ export function FloatingActions() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
   return (
-    <div className="fixed bottom-6 right-6 z-30 flex items-center">
+    <div className="fixed bottom-6 right-6 md:bottom-14 md:right-14  z-30 flex items-center">
 
       {/* BOTÃO PRINCIPAL — empurrado pelo scroll quando ele surge */}
       <BaseButton

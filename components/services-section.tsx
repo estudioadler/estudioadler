@@ -64,7 +64,7 @@ const NUM_CARDS = SERVICES.length
 
 export function Services() {
   return (
-    <section id="services-cards" className="flex w-full bg-neutral-50">
+    <section data-header-theme="light" id="services-cards" className="flex w-full bg-neutral-50">
       <div className="container mx-auto flex w-full flex-col gap-12 px-6 py-16 md:py-28">
         {/* Header */}
         <div className="flex max-w-2xl flex-col gap-3">

@@ -27,7 +27,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-950 text-white">
+    <footer data-header-theme="dark" className="bg-neutral-950 text-white">
       {/* Main Content */}
       <div className="grid grid-cols-1 md:grid-cols-4">
         {/* Logo Section */}
@@ -35,11 +35,11 @@ export function Footer() {
           <LinkHoverCard label="Home" icon="arrow-right">
             <Link href="/" aria-label="Home">
               <Image
-                src="/logo.png"
+                src="/logo-symbol-2.png"
                 alt="Estúdio Adler"
-                width={100}
-                height={100}
-                className="invert"
+                width={90}
+                height={90}
+                className="invert w-8 md:w-10 h-auto"
               />
             </Link>
           </LinkHoverCard>

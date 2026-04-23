@@ -40,7 +40,7 @@ export default function FAQ() {
   }
 
   return (
-    <section className="w-full bg-background">
+    <section data-header-theme="light" className="w-full bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Left column */}
         <div className="p-6 md:p-12 flex flex-col justify-start gap-6 lg:border-r border-border">

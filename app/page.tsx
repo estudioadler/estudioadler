@@ -1,6 +1,7 @@
 import FAQ from "@/components/faq"
 import { Features } from "@/components/feature-section"
 import {Hero} from "@/components/hero"
+import MethodologySection from "@/components/methodology-section"
 import {Services} from "@/components/services-section"
 
 import type { Metadata } from "next"
@@ -18,7 +19,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Features />
-      
+      <MethodologySection />
       <FAQ />
     </>
   )

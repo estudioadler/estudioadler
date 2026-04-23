@@ -6,8 +6,8 @@ import HeadingTitle from "./heading-title"
 
 export function CTA() {
   return (
-    <section className="w-full border-t bg-neutral-950 text-neutral-50">
-      <div className="container mx-auto flex  flex-col gap-10 px-6 py-24 md:flex-row md:items-center md:justify-between">
+    <section data-header-theme="dark" className="w-full border-t bg-neutral-950 text-neutral-50">
+      <div className="container mx-auto flex  flex-col gap-10 px-6 py-28 md:flex-row md:items-center md:justify-between">
         
         {/* LEFT */}
         <HeadingTitle>
