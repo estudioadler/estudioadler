@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
 import {
   ArrowLeftIcon,
@@ -214,7 +213,7 @@ export default function Header() {
             : "bg-neutral-950/40 text-neutral-50 backdrop-blur-sm",
         ].join(" ")}
       >
-        <Link href="/" className="flex items-center gap-2.5">
+        <CustomLink href="/" className="flex items-center gap-2.5">
           <LinkHoverCard label="Home" icon="arrow-diagonal">
             <Image
               src="/logo-symbol-2.png"
@@ -224,7 +223,7 @@ export default function Header() {
               className={`w-8 md:w-10 ${isLight ? "" : "invert"}`}
             />
           </LinkHoverCard>
-        </Link>
+        </CustomLink>
 
         <div className="h-10 w-10" />
       </header>
@@ -296,6 +295,7 @@ export default function Header() {
 
                 return (
                   <CustomLink
+                    onClickDelay={200}
                     key={link.href}
                     href={link.href}
                     onClick={toggleMenu}
@@ -332,6 +332,7 @@ export default function Header() {
               {/* ← isso estava faltando */}
               {servicesLinks.map((service) => (
                 <CustomLink
+                  onClickDelay={200}
                   key={service.href}
                   href={service.href}
                   onClick={toggleMenu}
@@ -348,6 +349,7 @@ export default function Header() {
           <nav ref={socialRef} className="flex flex-col gap-2">
             {socialLinks.map((link) => (
               <CustomLink
+                onClickDelay={200}
                 key={link.href}
                 href={link.href}
                 onClick={toggleMenu}

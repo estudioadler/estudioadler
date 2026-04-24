@@ -8,6 +8,9 @@ import { Footer } from "@/components/footer"
 import { Marquee } from "@/components/marquee"
 import { CTA } from "@/components/cta-section"
 import { FloatingActions } from "@/components/floating-actions"
+import ColumnWipe from "@/components/column-wipe"
+import { TransitionProvider } from "@/components/transition-provider"
+import TransitionReady from "@/components/transition-ready"
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
 
 const unbounded = Unbounded({
@@ -210,14 +213,18 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-neutral-950 selection:bg-blue-950 selection:text-white"
       >
-        <Header />
-        {children}
+        <TransitionProvider>
+          <TransitionReady />
+          <ColumnWipe />
+          <Header />
+          {children}
+        </TransitionProvider>
         <div className="flex flex-col">
           <CTA />
           <Marquee />
           <Footer />
         </div>
-        <FloatingActions  />
+        <FloatingActions />
       </body>
     </html>
   )

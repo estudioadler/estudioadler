@@ -166,7 +166,7 @@
     h4,
     h5,
     h6 {
-      font-family:  "Clash Grotesk", sans-serif;
+      font-family: "Manrope", sans-serif;
     }
     p {
       @apply text-base leading-relaxed text-muted-foreground;
@@ -181,6 +181,7 @@
 
   .service-card-wrapper {
     position: sticky;
+    top: unset important
   }
 
   .service-card-inner {

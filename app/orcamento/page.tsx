@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function OrcamentoPage() {
   return (
     <main data-header-theme="light" className="min-h-screen bg-zinc-50">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 py-28 md:py-0">
 
         {/* Mobile: empilhado | Desktop: duas colunas com sticky à esquerda */}
         <div className="flex flex-col gap-16 md:flex-row md:gap-0">

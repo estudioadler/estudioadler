@@ -1,114 +1,100 @@
-"use client";
-
-import { useRef } from "react";
+import HeadingTitle from "./heading-title"
 
 type Step = {
-  id: number;
-  title: string;
-  items: string[];
-};
+  id: number
+  title: string
+  items: string[]
+}
 
 const steps: Step[] = [
   {
     id: 1,
-    title: "Start",
+    title: "Início",
     items: [
       "Definição do escopo",
       "Planejamento",
       "Arquitetura",
-      "Pesquisas",
+      "Pesquisa",
       "Sitemap",
     ],
   },
   {
     id: 2,
     title: "Design",
-    items: ["Key Visual", "Wireframe", "UI Design", "Protótipo"],
+    items: ["Direção visual", "Wireframe", "UI Design", "Protótipo"],
   },
   {
     id: 3,
-    title: "Front-end",
-    items: ["Arquitetura Front-end", "Codificação", "Otimização"],
+    title: "Desenvolvimento",
+    items: ["Arquitetura front-end", "Codificação", "Otimização"],
   },
   {
     id: 4,
     title: "Entrega",
-    items: ["Validações", "Lançamento"],
+    items: ["Validação", "Publicação"],
   },
-];
+]
 
-export default function MethodologyTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
+export default function Methodology() {
   return (
-    <section data-header-theme="light" className="w-full bg-zinc-50 py-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 mb-16">
-        <span className="text-sm uppercase tracking-widest text-zinc-500">
-          Metodologia
-        </span>
+    <section
+      data-header-theme="light"
+      className="w-full bg-neutral-50"
+    >
+      <div className="container mx-auto flex flex-col gap-16 px-6 py-28 md:py-36">
+        
+        {/* HEADER */}
+        <div className="flex max-w-2xl flex-col gap-3">
+          <HeadingTitle>
+            Como <br />
+            trabalhamos
+          </HeadingTitle>
 
-        <h2 className="text-3xl md:text-5xl font-bold mt-4">
-          Do briefing ao lançamento
-        </h2>
+          <p className="text-base leading-relaxed text-muted-foreground">
+            Um processo estruturado para garantir clareza em cada etapa,
+            evitar retrabalho e manter consistência do início ao fim.
+          </p>
+        </div>
 
-        <p className="text-zinc-600 mt-6 max-w-2xl">
-          Um fluxo estruturado que organiza cada etapa do projeto e garante um
-          desenvolvimento eficiente, previsível e profissional.
-        </p>
-      </div>
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-0">
+          {steps.map((step, ) => (
+            <div
+              key={step.id}
+              className="
+                flex flex-col gap-6 px-6 py-10
+                border border-neutral-200/70
+                bg-neutral-100
+                md:-mt-px md:-ml-px
+              "
+            >
+              {/* TOP */}
+              <div className="flex items-center gap-4">
+                <span className="font-unbounded text-xl tracking-widest text-muted-foreground">
+                  {String(step.id).padStart(2, "0")}
+                </span>
 
-      {/* Timeline */}
-      <div
-        ref={containerRef}
-        className="relative w-full overflow-x-auto scrollbar-hide"
-      >
-        <div className="flex gap-20 px-10 min-w-max items-center">
-          
-          {/* Linha central */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-zinc-200 -translate-y-1/2" />
-
-          {steps.map((step, index) => {
-            const isTop = index % 2 === 0;
-
-            return (
-              <div
-                key={step.id}
-                className="relative flex flex-col items-center min-w-70"
-              >
-                {/* Card */}
-                <div
-                  className={`w-full bg-white border border-zinc-200 rounded-2xl p-6 shadow-sm transition hover:shadow-xl
-                  ${isTop ? "mb-16" : "mt-16"}`}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-zinc-300 font-bold text-xl">
-                      {String(step.id).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-semibold text-lg">
-                      {step.title}
-                    </h3>
-                  </div>
-
-                  <ul className="space-y-2">
-                    {step.items.map((item, i) => (
-                      <li
-                        key={i}
-                        className="text-zinc-600 text-sm flex gap-2 items-center"
-                      >
-                        <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Ponto na linha */}
-                <div className="w-4 h-4 bg-black rounded-full z-10 border-4 border-white shadow" />
+                <h3 className="text-lg font-medium text-foreground">
+                  {step.title}
+                </h3>
               </div>
-            );
-          })}
+
+              {/* LIST */}
+              <ul className="flex flex-col gap-2">
+                {step.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-muted-foreground" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  );
+  )
 }
