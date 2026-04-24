@@ -11,6 +11,7 @@ import { FloatingActions } from "@/components/floating-actions"
 import ColumnWipe from "@/components/column-wipe"
 import { TransitionProvider } from "@/components/transition-provider"
 import TransitionReady from "@/components/transition-ready"
+import Preloader from "@/components/preloader"
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
 
 const unbounded = Unbounded({
@@ -213,6 +214,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-neutral-950 selection:bg-blue-950 selection:text-white"
       >
+        <Preloader />
         <TransitionProvider>
           <TransitionReady />
           <ColumnWipe />

@@ -31,22 +31,16 @@ const jsonLd = {
 }
 
 const etapas = [
-  { numero: "01", label: "Briefing e diagnóstico" },
-  { numero: "02", label: "UX/UI — estrutura e visual" },
-  { numero: "03", label: "Desenvolvimento" },
-  { numero: "04", label: "Revisão e entrega" },
-  { numero: "05", label: "Suporte pós-lançamento" },
-]
-
-const numeros = [
-  { valor: "8+", label: "anos em design gráfico" },
-  { valor: "Full", label: "stack — design e dev no mesmo lugar" },
-  { valor: "4", label: "segmentos atendidos e contando" },
+  { numero: "01", label: "Briefing e diagnóstico", desc: "Entendemos o contexto e os objetivos" },
+  { numero: "02", label: "UX/UI — estrutura e visual", desc: "Desenhamos a experiência completa" },
+  { numero: "03", label: "Desenvolvimento", desc: "Transformamos design em código" },
+  { numero: "04", label: "Revisão e entrega", desc: "Ajustes finais e publicação" },
+  { numero: "05", label: "Suporte pós-lançamento", desc: "Acompanhamento contínuo" },
 ]
 
 export default function SobrePage() {
   return (
-    <main>
+    <main className="bg-neutral-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -66,14 +60,14 @@ export default function SobrePage() {
       />
 
       {/* ── BLOCO 1: O estúdio ───────────────────────────── */}
-      <section className="container mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between">
+      <section className="bg-neutral-100 container mx-auto px-6 py-24 md:px-12 md:py-32">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo — eyebrow + título */}
-          <div className="flex flex-col gap-3 md:w-1/2">
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
               O estúdio
             </span>
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white uppercase md:text-4xl">
+            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-neutral-950 uppercase md:text-4xl lg:text-5xl">
               Criado para
               <br />
               fazer diferente.
@@ -81,14 +75,14 @@ export default function SobrePage() {
           </div>
 
           {/* Lado direito — texto */}
-          <div className="flex flex-col gap-6 text-neutral-400 md:w-1/2 md:pt-1">
-            <p className="text-sm leading-relaxed md:text-base">
+          <div className="flex flex-col gap-8 lg:col-span-6 lg:col-start-7">
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               O Estúdio Adler nasceu da convicção de que um site bem feito
               precisa de dois olhares ao mesmo tempo: o do designer, que
               entende de forma, hierarquia e percepção; e o do desenvolvedor,
               que sabe transformar isso em algo que funciona de verdade.
             </p>
-            <p className="text-sm leading-relaxed md:text-base">
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               A maioria dos projetos passa por mãos separadas — design de um
               lado, código do outro. Aqui, os dois acontecem juntos, desde o
               início. Isso muda o resultado.
@@ -104,13 +98,13 @@ export default function SobrePage() {
 
       {/* ── BLOCO 2: Como trabalhamos ────────────────────── */}
       <section className="container mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo */}
-          <div className="flex flex-col gap-3 md:w-1/2">
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
               Como trabalhamos
             </span>
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white uppercase md:text-4xl">
+            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-neutral-50 uppercase md:text-4xl lg:text-5xl">
               Cada projeto tem
               <br />
               começo, meio
@@ -119,15 +113,15 @@ export default function SobrePage() {
           </div>
 
           {/* Lado direito */}
-          <div className="flex flex-col gap-10 md:w-1/2 md:pt-1">
-            <div className="flex flex-col gap-6 text-neutral-400">
-              <p className="text-sm leading-relaxed md:text-base">
+          <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7">
+            <div className="flex flex-col gap-6">
+              <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
                 Nenhum projeto começa pelo código. Antes disso, o trabalho
                 passa por uma etapa de UX/UI — entender o contexto, mapear o
                 que precisa funcionar e definir como isso vai ser apresentado.
                 Só depois vem o desenvolvimento.
               </p>
-              <p className="text-sm leading-relaxed md:text-base">
+              <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
                 Esse processo evita retrabalho, reduz surpresas e garante que
                 o que foi entregue faz sentido para quem vai usar.
               </p>
@@ -135,16 +129,19 @@ export default function SobrePage() {
 
             {/* Etapas */}
             <ol className="flex flex-col">
-              {etapas.map((etapa,) => (
+              {etapas.map((etapa) => (
                 <li
                   key={etapa.numero}
-                  className="flex items-center gap-4 border-t border-neutral-800 py-4 last:border-b"
+                  className="group grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 border-t border-neutral-800 py-6 transition-colors last:border-b hover:bg-neutral-900/50"
                 >
-                  <span className="font-mono text-xs text-neutral-600">
+                  <span className="row-span-2 flex size-10 items-center justify-center rounded-full border border-neutral-800 font-mono text-xs text-neutral-500 transition-colors group-hover:border-blue-950 group-hover:text-neutral-50">
                     {etapa.numero}
                   </span>
-                  <span className="text-sm text-neutral-300 md:text-base">
+                  <span className="self-end text-sm font-medium text-neutral-50 md:text-base">
                     {etapa.label}
+                  </span>
+                  <span className="self-start text-sm text-neutral-500">
+                    {etapa.desc}
                   </span>
                 </li>
               ))}
@@ -158,34 +155,15 @@ export default function SobrePage() {
         <hr className="border-neutral-800" />
       </div>
 
-      {/* ── BLOCO 3: Números ─────────────────────────────── */}
-      <section className="container mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-          {numeros.map((item) => (
-            <div key={item.valor} className="flex flex-col gap-2">
-              <span className="font-unbounded text-5xl font-normal tracking-[-0.04em] text-white md:text-6xl">
-                {item.valor}
-              </span>
-              <span className="text-sm text-neutral-500">{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── DIVISOR ──────────────────────────────────────── */}
-      <div className="container mx-auto px-6 md:px-12">
-        <hr className="border-neutral-800" />
-      </div>
-
-      {/* ── BLOCO 4: O que entregamos ────────────────────── */}
-      <section className="container mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between">
+      {/* ── BLOCO 3: O que entregamos ────────────────────── */}
+      <section className="bg-blue-950 container mx-auto px-6 py-24 md:px-12 md:py-32">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo */}
-          <div className="flex flex-col gap-3 md:w-1/2">
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
               O que entregamos
             </span>
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white uppercase md:text-4xl">
+            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-neutral-50 uppercase md:text-4xl lg:text-5xl">
               Sites.
               <br />
               De todos
@@ -195,14 +173,14 @@ export default function SobrePage() {
           </div>
 
           {/* Lado direito */}
-          <div className="flex flex-col gap-8 md:w-1/2 md:pt-1">
-            <div className="flex flex-col gap-6 text-neutral-400">
-              <p className="text-sm leading-relaxed md:text-base">
+          <div className="flex flex-col gap-10 lg:col-span-6 lg:col-start-7">
+            <div className="flex flex-col gap-6">
+              <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
                 Sites institucionais, e-commerces, landing pages e páginas de
                 vendas — com design pensado e código feito à mão. Sem
                 templates prontos, sem atalhos que comprometem o resultado.
               </p>
-              <p className="text-sm leading-relaxed md:text-base">
+              <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
                 Para cada tipo de projeto, existe um processo adequado. O que
                 não muda é o padrão de entrega.
               </p>
@@ -210,7 +188,7 @@ export default function SobrePage() {
 
             <Link
               href="/servicos"
-              className="group inline-flex w-fit items-center gap-2 text-sm text-white underline-offset-4 hover:underline"
+              className="group inline-flex w-fit items-center gap-3 border border-neutral-800 px-6 py-3 text-sm font-medium text-neutral-50 transition-all hover:border-blue-950 hover:bg-blue-950/10"
             >
               Ver serviços
               <span className="transition-transform group-hover:translate-x-1">
@@ -218,29 +196,6 @@ export default function SobrePage() {
               </span>
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA FINAL ────────────────────────────────────── */}
-      <section className="container mx-auto px-6 pb-32 md:px-12">
-        <div className="flex flex-col gap-6 rounded-none border border-neutral-800 p-10 md:flex-row md:items-end md:justify-between md:p-16">
-          <div className="flex flex-col gap-3">
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-white uppercase md:text-4xl">
-              Tem um projeto
-              <br />
-              em mente?
-            </h2>
-            <p className="max-w-sm text-sm text-neutral-400 md:text-base">
-              Conta o que você precisa. A conversa não compromete nada.
-            </p>
-          </div>
-
-          <Link
-            href="/orcamento"
-            className="inline-flex w-fit items-center border border-white px-8 py-4 font-unbounded text-xs tracking-widest text-white uppercase transition-colors hover:bg-white hover:text-neutral-950"
-          >
-            Solicitar orçamento
-          </Link>
         </div>
       </section>
     </main>
