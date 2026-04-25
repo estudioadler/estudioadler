@@ -63,11 +63,6 @@ const entregas = [
   },
 ]
 
-const numeros = [
-  { valor: "8+", label: "anos em design e identidade visual" },
-  { valor: "100%", label: "custom — sem templates prontos" },
-  { valor: "1", label: "ponto de contato do início ao fim" },
-]
 
 export default function SitesInstitucionaisPage() {
   return (
@@ -186,19 +181,6 @@ export default function SitesInstitucionaisPage() {
         <hr className="border-neutral-800" />
       </div>
 
-      {/* ── BLOCO 3: Números ─────────────────────────────── */}
-      <section className="container mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-          {numeros.map((item) => (
-            <div key={item.valor} className="flex flex-col gap-2">
-              <span className="font-unbounded text-5xl font-normal tracking-[-0.04em] text-white md:text-6xl">
-                {item.valor}
-              </span>
-              <span className="text-sm text-neutral-500">{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ── DIVISOR ──────────────────────────────────────── */}
       <div className="container mx-auto px-6 md:px-12">

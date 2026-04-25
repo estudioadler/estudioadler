@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Orçamento",
   description:
-    "Solicite um orçamento para criação de site, e-commerce ou identidade visual. Preencha o formulário e nossa equipe entrará em contato.",
+    "Solicite um orçamento para criação de site, e-commerce ou landing page. Preencha o formulário e nossa equipe entrará em contato.",
   alternates: { canonical: "/orcamento" },
   openGraph: {
     title: "Solicitar Orçamento | Estúdio Adler",

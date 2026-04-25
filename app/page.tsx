@@ -7,9 +7,9 @@ import {Services} from "@/components/services-section"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Estúdio Adler | Criação de Sites, E-commerce e Identidade Visual",
+  title: "Estúdio Adler | Estúdio de Criação de Sites, E-commerces, Landing Pages e Sites Institucionais",
   description:
-    "Transformamos sua ideia em presença digital. Sites profissionais, lojas virtuais e identidade visual para marcas que querem se destacar.",
+    "Transformamos sua ideia em presença digital. Estúdio de Criação de Sites, E-commerces, Landing Pages e Sites Institucionais.",
   alternates: { canonical: "/" },
 }
 

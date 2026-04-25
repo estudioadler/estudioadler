@@ -26,24 +26,22 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Estúdio Adler | Estúdio de Criação de Sites, E-commerce e Identidade Visual",
+      "Estúdio Adler | Estúdio de Criação de Sites, E-commerces, Landing Pages e Sites Institucionais",
     template: "%s | Estúdio Adler",
   },
 
   description:
-    "Estúdio Adler: criação de sites profissionais, lojas virtuais e identidade visual para marcas que querem se destacar. Transformamos sua ideia em presença digital.",
+    "Estúdio Adler: criação de sites profissionais, e-commerce e landing pages. Transformamos sua empresa em presença digital.",
 
   keywords: [
     "criação de sites",
     "desenvolvimento web",
     "e-commerce",
     "loja virtual",
-    "identidade visual",
-    "design gráfico",
-    "logo",
-    "branding",
     "estúdio digital",
     "Estúdio Adler",
+    "landing pages",
+    "paginas de vendas",
   ],
 
   authors: [{ name: "Estúdio Adler", url: siteUrl }],
@@ -60,15 +58,15 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Estúdio Adler",
     title:
-      "Estúdio Adler | Estúdio de Criação de Sites, E-commerce e Identidade Visual",
+      "Estúdio Adler | Estúdio de Criação de Sites, E-commerces e Landing Pages",
     description:
-      "Sites profissionais, lojas virtuais e identidade visual para marcas que querem crescer no digital.",
+      "Sites profissionais, lojas virtuais e Landing Pages para empresas que querem crescer no digital.",
     images: [
       {
         url: "/og-image.jpg", // adicione uma imagem 1200x630px em /public
         width: 1200,
         height: 630,
-        alt: "Estúdio Adler - Design e Desenvolvimento Web",
+        alt: "Estúdio Adler - Desenvolvimento Web",
       },
     ],
   },
@@ -76,9 +74,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Estúdio Adler | Estúdio de Criação de Sites, E-commerce e Identidade Visual",
+      "Estúdio Adler | Estúdio de Criação de Sites, E-commerce e Landing Pages",
     description:
-      "Sites profissionais, lojas virtuais e identidade visual para marcas que querem crescer no digital.",
+      "Sites profissionais, lojas virtuais e Landing Pages para empresas que querem crescer no digital.",
     images: ["/og-image.jpg"],
   },
 
@@ -153,7 +151,7 @@ export default function RootLayout({
                   name: "Estúdio Adler",
                   url: siteUrl,
                   description:
-                    "Criação de sites profissionais, e-commerce e identidade visual para marcas que querem se destacar no digital.",
+                    "Criação de sites profissionais, e-commerce e landing pages para empresas que querem se destacar no digital.",
                   "@context": "https://schema.org",
                   priceRange: "$$",
                   image: `${siteUrl}/og-image.jpg`,
@@ -185,9 +183,9 @@ export default function RootLayout({
                         "@type": "Offer",
                         itemOffered: {
                           "@type": "Service",
-                          name: "Identidade Visual",
+                          name: "Landing Pages",
                           description:
-                            "Criação de logo, paleta de cores e branding completo para sua marca.",
+                            "Criação de landing pages completas e prontas para vender.",
                         },
                       },
                     ],
@@ -199,7 +197,7 @@ export default function RootLayout({
                   url: siteUrl,
                   name: "Estúdio Adler",
                   description:
-                    "Sites, e-commerce e identidade visual para marcas que querem crescer.",
+                    "Sites, e-commerces e landing pages para empresas que querem crescer.",
                   inLanguage: "pt-BR",
                   publisher: {
                     "@id": `${siteUrl}/#business`,

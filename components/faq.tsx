@@ -48,7 +48,7 @@ export default function FAQ() {
           <div className="flex max-w-md flex-col gap-6">
             <p>
               Descubra e entenda as principais dúvidas sobre o desenvolvimento
-              de sites, e-commerce e identidade visual. Esclareça suas perguntas
+              de sites, e-commerces e landing pages. Esclareça suas perguntas
               e tome decisões informadas para o sucesso do seu projeto digital.
             </p>
             <BaseButton text="Quero uma proposta" />
