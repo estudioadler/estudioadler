@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/servicos/criacao-de-sites`,
+      url: `${siteUrl}/servicos/sites-institucionais`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/servicos/identidade-visual`,
+      url: `${siteUrl}/servicos/landing-pages`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
