@@ -1,5 +1,4 @@
 import { Manrope, Unbounded } from "next/font/google"
-
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { Metadata } from "next"
@@ -12,6 +11,10 @@ import ColumnWipe from "@/components/column-wipe"
 import { TransitionProvider } from "@/components/transition-provider"
 import TransitionReady from "@/components/transition-ready"
 import Preloader from "@/components/preloader"
+import { GoogleAnalytics } from "@/components/google-analytics"
+
+
+
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
 
 const unbounded = Unbounded({
@@ -139,6 +142,7 @@ export default function RootLayout({
       )}
     >
       <head>
+        <GoogleAnalytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
