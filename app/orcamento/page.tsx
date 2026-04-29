@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Orçamento",
   description:
     "Solicite um orçamento para criação de site, e-commerce ou landing page. Preencha o formulário e nossa equipe entrará em contato.",
-  alternates: { canonical: "/orcamento" },
+  alternates: { canonical: "https://estudioadler.com.br/orcamento" },
   openGraph: {
     title: "Solicitar Orçamento | Estúdio Adler",
     description:

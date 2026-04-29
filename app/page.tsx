@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Estúdio Adler | Estúdio de Criação de Sites, E-commerces, Landing Pages e Sites Institucionais",
   description:
     "Transformamos sua ideia em presença digital. Estúdio de Criação de Sites, E-commerces, Landing Pages e Sites Institucionais.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "https://estudioadler.com.br" },
 }
 
 export default function Home() {

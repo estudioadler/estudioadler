@@ -51,10 +51,6 @@ export const metadata: Metadata = {
   creator: "Estúdio Adler",
   publisher: "Estúdio Adler",
 
-  alternates: {
-    canonical: "/",
-  },
-
   openGraph: {
     type: "website",
     locale: "pt_BR",

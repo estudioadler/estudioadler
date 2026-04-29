@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Portfólio",
   description:
     "Conheça os projetos desenvolvidos pelo Estúdio Adler — sites institucionais, e-commerces e landing pages com design e código feitos à mão.",
-  alternates: { canonical: "/portfolio" },
+  alternates: { canonical: "https://estudioadler.com.br/portfolio" },
   openGraph: {
     title: "Portfólio | Estúdio Adler",
     description:

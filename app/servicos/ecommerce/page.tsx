@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "E-commerce",
   description:
     "O Estúdio Adler desenvolve lojas virtuais completas, seguras e otimizadas para converter visitantes em clientes.",
-  alternates: { canonical: "/servicos/ecommerce" },
+  alternates: { canonical: " https://estudioadler.com.br/servicos/ecommerce" },
   openGraph: {
     title: "Criação de E-commerce | Estúdio Adler",
     description:

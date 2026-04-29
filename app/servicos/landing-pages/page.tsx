@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Landing Pages",
   description:
     "O Estúdio Adler cria landing pages e páginas de vendas diretas ao ponto — desenvolvidas para transformar visitantes em clientes.",
-  alternates: { canonical: "/servicos/landing-pages" },
+  alternates: { canonical: "https://estudioadler.com.br/servicos/landing-pages" },
   openGraph: {
     title: "Criação de Landing Pages | Estúdio Adler",
     description:

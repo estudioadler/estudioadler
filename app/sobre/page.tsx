@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Sobre",
   description:
     "O Estúdio Adler une design gráfico e desenvolvimento fullstack em um único lugar. Conheça a história e a abordagem por trás de cada projeto.",
-  alternates: { canonical: "/sobre" },
+  alternates: { canonical: "https://estudioadler.com.br/sobre" },
   openGraph: {
     title: "Sobre | Estúdio Adler",
     description:

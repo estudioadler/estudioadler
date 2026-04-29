@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Contato",
   description:
     "Entre em contato com o Estúdio Adler. Vamos conversar sobre o seu projeto de site, e-commerce ou landing page.",
-  alternates: { canonical: "/contato" },
+  alternates: { canonical: "https://estudioadler.com.br/contato" },
   openGraph: {
     title: "Fale com o Estúdio Adler",
     description:

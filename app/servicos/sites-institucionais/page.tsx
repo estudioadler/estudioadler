@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Sites Institucionais",
   description:
     "O Estúdio Adler cria sites institucionais com design profissional e código robusto — presença digital que transmite credibilidade desde o primeiro acesso.",
-  alternates: { canonical: "/servicos/sites-institucionais" },
+  alternates: { canonical: "https://estudioadler.com.br/servicos/sites-institucionais" },
   openGraph: {
     title: "Criação de Sites Institucionais | Estúdio Adler",
     description:
