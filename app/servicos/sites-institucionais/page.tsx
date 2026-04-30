@@ -74,12 +74,9 @@ export default function SitesInstitucionaisPage() {
 
       {/* ── HERO ─────────────────────────────────────────── */}
       <PageHero
-        eyebrow="Serviços / Sites Institucionais"
         title={
           <>
-            Presença digital
-            <br />
-            que representa.
+            Presença <br />digital que <br />representa.
           </>
         }
         subtitle="Sites institucionais construídos para transmitir credibilidade desde o primeiro acesso."

@@ -1,52 +1,54 @@
+"use client"
 
-import { ArrowUpRightIcon, InfoIcon, LightningIcon, MagnifyingGlassIcon, PenIcon, ResizeIcon, ShieldCheckIcon, TargetIcon } from "@phosphor-icons/react/dist/ssr"
+import { useState } from "react"
+import { InfoIcon, LightningIcon, MagnifyingGlassIcon, PenIcon, ResizeIcon, ShieldCheckIcon, SparkleIcon, TargetIcon } from "@phosphor-icons/react/dist/ssr"
 import HeadingTitle from "./heading-title"
 
 const FEATURES = [
   {
-    icon: <ResizeIcon size={24} weight="fill" />,
+    icon: <ResizeIcon size={20} weight="fill" />,
     title: "Tecnologia responsiva",
     description:
       "Garantindo segurança, velocidade e responsividade para todos os dispositivos.",
   },
   {
-    icon: <MagnifyingGlassIcon size={24} weight="fill" />,
+    icon: <MagnifyingGlassIcon size={20} weight="fill" />,
     title: "SEO Otimizado",
     description:
       "Ajude seu site a ser encontrado mais rapidamente com avançadas ferramentas de SEO integradas.",
   },
   {
-    icon: <ShieldCheckIcon size={24} weight="fill" />,
+    icon: <ShieldCheckIcon size={20} weight="fill" />,
     title: "Segurança",
     description:
       "Uma plataforma segura, desde arquitetura até codificação em tecnologias avançadas.",
   },
   {
-    icon: <ArrowUpRightIcon size={24} weight="fill" />,
+    icon: <SparkleIcon size={20} weight="fill" />,
     title: "Exclusividade",
     description:
       "Layout desenvolvido e personalizado para sua marca, tudo nos mínimos detalhes, especialmente para você.",
   },
   {
-    icon: <TargetIcon size={24} weight="fill" />,
+    icon: <TargetIcon size={20} weight="fill" />,
     title: "Experiência do usuário",
     description:
       "Construímos sites intuitivos, para garantir performance otimizada e uma experiência excepcional.",
   },
   {
-    icon: <PenIcon size={24} weight="fill" />,
+    icon: <PenIcon size={20} weight="fill" />,
     title: "Design profissional",
     description:
       "Crie experiências visuais impactantes, combinando estética e usabilidade para entregar soluções inovadoras.",
   },
   {
-    icon: <LightningIcon size={24} weight="fill" />,
+    icon: <LightningIcon size={20} weight="fill" />,
     title: "Performance",
     description:
       "Tudo que seu site precisa para assegurar um melhor desempenho e carregamento rápido.",
   },
   {
-    icon: <InfoIcon size={24} weight="fill" />,
+    icon: <InfoIcon size={20} weight="fill" />,
     title: "Suporte contínuo",
     description:
       "Acompanhamento dedicado após o lançamento para garantir que seu site evolua junto com o seu negócio.",
@@ -54,37 +56,76 @@ const FEATURES = [
 ]
 
 export function Features() {
+  const [active, setActive] = useState(0)
+
   return (
-    <section data-header-theme="light" className="flex w-full bg-neutral-50">
-      <div className="container mx-auto px-6 py-16 md:py-28 w-full flex flex-col gap-16">
-        <HeadingTitle>Como entregamos resultados</HeadingTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURES.map((feature) => (
-            <div
-              key={feature.title}
-              className="flex flex-col gap-4 p-6 outline outline-secondary hover:bg-secondary min-h-70"
-            >
-              {/* Icon above title */}
-              <span className="text-2xl">{feature.icon}</span>
+    <section data-header-theme="dark" className="flex w-full bg-neutral-950">
+      <div className="container mx-auto px-6 py-28 md:py-36 w-full flex flex-col gap-16">
+        <HeadingTitle className="text-neutral-50">Como entregamos resultados</HeadingTitle>
 
-              {/* Title */}
-              <h3 className="font-heading text-lg font-medium">
-                {feature.title}
-              </h3>
+        {/* Desktop: two-column asymmetric */}
+        <div className="hidden md:grid md:grid-cols-[1fr_1.8fr] border-t border-neutral-800">
 
-              {/* Description — grows to fill space */}
-              <p className="text-base text-muted-foreground flex-1">
-                {feature.description}
-              </p>
-
-              {/* Arrow button aligned to the right at the bottom */}
-              <div className="flex justify-end">
-                <button
-                  aria-label={`Saiba mais sobre ${feature.title}`}
-                  className="flex items-center justify-center w-8 h-8 rounded-full outline outline-secondary hover:bg-secondary transition-colors"
+          {/* Left — list of titles */}
+          <div className="border-r border-neutral-800">
+            {FEATURES.map((feature, i) => (
+              <button
+                key={feature.title}
+                onClick={() => setActive(i)}
+                className={[
+                  "w-full flex items-center gap-3 px-0 py-4 pr-8 border-b border-neutral-800 text-left transition-colors duration-150 cursor-pointer group",
+                  active === i
+                    ? "text-neutral-50"
+                    : "text-neutral-500 hover:text-neutral-300",
+                ].join(" ")}
+              >
+                <span
+                  className={[
+                    "transition-colors duration-150 shrink-0",
+                    active === i ? "text-neutral-50" : "text-neutral-600 group-hover:text-neutral-400",
+                  ].join(" ")}
                 >
-                  <ArrowUpRightIcon className="w-4 h-4" />
-                </button>
+                  {feature.icon}
+                </span>
+                <span className="font-medium text-sm">{feature.title}</span>
+                {active === i && (
+                  <span className="ml-auto text-neutral-500 text-xs">→</span>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Right — expanded description */}
+          <div className="pl-12 pt-8 pb-8 flex flex-col justify-center min-h-96">
+            <div
+              key={active}
+              className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-2 duration-300"
+            >
+              <span className="text-neutral-400">
+                {FEATURES[active].icon && (
+                  <span className="inline-flex text-neutral-400 [&>svg]:size-8">
+                    {FEATURES[active].icon}
+                  </span>
+                )}
+              </span>
+              <h3 className="font-heading text-4xl font-medium text-neutral-50 leading-tight">
+                {FEATURES[active].title}
+              </h3>
+              <p className="text-base text-neutral-400 leading-relaxed max-w-md">
+                {FEATURES[active].description}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: stacked list */}
+        <div className="flex flex-col md:hidden divide-y divide-neutral-800 border-t border-neutral-800">
+          {FEATURES.map((feature) => (
+            <div key={feature.title} className="flex gap-4 py-5">
+              <span className="text-neutral-400 shrink-0 mt-0.5">{feature.icon}</span>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-sm font-medium text-neutral-50">{feature.title}</h3>
+                <p className="text-sm text-neutral-400 leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}

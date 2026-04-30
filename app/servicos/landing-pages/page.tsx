@@ -78,7 +78,6 @@ export default function LandingPagesPage() {
       />
 
       <PageHero
-        eyebrow="Serviços / Landing Pages"
         title={
           <>
             Uma página.

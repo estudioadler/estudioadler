@@ -7,6 +7,7 @@ const SERVICES = [
     description:
       "Porta de entrada com maior demanda do mercado. Desenvolvemos sites rápidos, responsivos e otimizados para converter visitantes em clientes.",
     tags: ["presença online", "credibilidade", "responsivo"],
+    featured: false,
   },
   {
     number: "02",
@@ -14,6 +15,7 @@ const SERVICES = [
     description:
       "Foco total em conversão — vendas e captação de leads. Cada elemento é pensado para guiar o visitante até a ação que você precisa.",
     tags: ["conversão", "leads", "campanhas"],
+    featured: false,
   },
   {
     number: "03",
@@ -21,6 +23,7 @@ const SERVICES = [
     description:
       "Para quem está pronto para vender online em escala. Loja completa, segura e preparada para crescer junto com o seu negócio.",
     tags: ["vendas", "checkout", "pagamentos"],
+    featured: false,
   },
   {
     number: "04",
@@ -28,6 +31,7 @@ const SERVICES = [
     description:
       "Crescimento orgânico e visibilidade nos mecanismos de busca. Seu site encontrado pelas pessoas certas, na hora certa.",
     tags: ["tráfego", "google", "orgânico"],
+    featured: false,
   },
   {
     number: "05",
@@ -35,6 +39,7 @@ const SERVICES = [
     description:
       "Velocidade e experiência como diferencial técnico. Sites lentos perdem clientes — nós garantimos que isso não aconteça com o seu.",
     tags: ["velocidade", "core web vitals", "ux"],
+    featured: false,
   },
   {
     number: "06",
@@ -42,6 +47,7 @@ const SERVICES = [
     description:
       "Acompanhamento contínuo após o lançamento para garantir evolução, segurança e recorrência. Não entregamos e abandonamos — ficamos ao seu lado.",
     tags: ["manutenção", "segurança", "suporte contínuo"],
+    featured: true,
   },
 ]
 
@@ -93,27 +99,43 @@ export function Services() {
                 }
               >
                 <div
-                  className="
+                  className={`
                     group flex min-h-96 flex-col gap-4 px-6 py-8
                     transition-colors duration-200
-                    border border-neutral-200/70
-                    bg-neutral-50
+                    border
                     md:-mt-px md:-ml-px md:min-h-96 md:rounded-none
-                    hover:bg-neutral-100
-                  "
+                    ${service.featured
+                      ? "bg-blue-950"
+                      : "border-neutral-200/70 bg-neutral-50 hover:bg-neutral-100"
+                    }
+                  `}
                 >
                   {/* Number */}
-                  <span className="font-unbounded text-xl font-medium tracking-widest text-muted-foreground">
+                  <span
+                    className={`font-unbounded text-xl font-medium tracking-widest ${
+                      service.featured
+                        ? "text-neutral-50"
+                        : "text-muted-foreground"
+                    }`}
+                  >
                     {service.number}
                   </span>
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold text-foreground">
+                  <h3
+                    className={`text-xl font-semibold ${
+                      service.featured ? "text-neutral-50" : "text-foreground"
+                    }`}
+                  >
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p
+                    className={`flex-1 text-sm leading-relaxed ${
+                      service.featured ? "text-neutral-400" : "text-muted-foreground"
+                    }`}
+                  >
                     {service.description}
                   </p>
 
@@ -122,12 +144,14 @@ export function Services() {
                     {service.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="
-                          rounded-full border border-muted-foreground
-                          px-3 py-1 text-xs font-medium
-                          text-muted-foreground
+                        className={`
+                          rounded-full border px-3 py-1 text-xs font-medium
                           flex items-center
-                        "
+                          ${service.featured
+                            ? "border-muted-foreground text-neutral-400"
+                            : "border-muted-foreground text-muted-foreground"
+                          }
+                        `}
                       >
                         + {tag}
                       </span>

@@ -78,7 +78,6 @@ export default function EcommercePage() {
       />
 
       <PageHero
-        eyebrow="Serviços / E-commerce"
         title={
           <>
             Sua loja.

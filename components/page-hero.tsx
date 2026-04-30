@@ -33,13 +33,13 @@ export function PageHero({ title, subtitle, eyebrow }: PageHeroProps) {
         )}
 
         {/* Título */}
-        <h1 className="w-full max-w-sm font-unbounded text-4xl leading-[1.1] font-normal tracking-[-0.03em] text-white uppercase md:max-w-2xl md:text-5xl">
+        <h1 className="w-full max-w-sm font-unbounded text-3xl leading-[1.1] font-normal tracking-[-0.03em] text-white uppercase md:max-w-2xl md:text-5xl">
           {title}
         </h1>
 
         {/* Subtítulo */}
         {subtitle && (
-          <p className="max-w-md text-sm leading-relaxed text-neutral-400 md:text-base">
+          <p className="max-w-xs text-sm leading-relaxed text-neutral-400 md:text-base">
             {subtitle}
           </p>
         )}
