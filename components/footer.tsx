@@ -50,7 +50,7 @@ export function Footer() {
 
         {/* Navigation Links */}
         <div className="p-6 md:p-12 border-b md:border-b-0 md:border-r border-neutral-800">
-          <nav className="flex flex-col gap-2">
+          <nav className="flex flex-col gap-1">
             {navigationLinks.map((link) => (
               <LinkHoverCard
                 key={link.href}
@@ -62,7 +62,7 @@ export function Footer() {
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                   className="
-                    group relative flex items-center gap-2
+                    group relative flex items-center gap-1
                     text-xl md:text-2xl font-medium text-white
                     hover:text-neutral-300 transition-colors w-fit
                     after:absolute after:bottom-0 after:left-0

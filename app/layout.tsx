@@ -209,23 +209,23 @@ export default function RootLayout({
         />
       </head>
       <body
-        suppressHydrationWarning
-        className="bg-neutral-950 selection:bg-blue-950 selection:text-white"
-      >
-        <Preloader />
-        <TransitionProvider>
-          <TransitionReady />
-          <ColumnWipe />
-          <Header />
-          {children}
-        </TransitionProvider>
-        <div className="flex flex-col">
-          <CTA />
-          <Marquee />
-          <Footer />
-        </div>
-        <FloatingActions />
-      </body>
+  suppressHydrationWarning
+  className="bg-neutral-950 selection:bg-blue-950 selection:text-white"
+>
+  <Preloader />
+  <TransitionProvider>
+    <TransitionReady />
+    <ColumnWipe />
+    <Header />
+    {children}
+    <div className="flex flex-col">
+      <CTA />
+      <Marquee />
+      <Footer />
+    </div>
+    <FloatingActions />
+  </TransitionProvider>
+</body>
     </html>
   )
 }

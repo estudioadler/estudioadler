@@ -56,14 +56,14 @@ const NUM_CARDS = SERVICES.length
 export function Services() {
   return (
     <section
-      data-header-theme="light"
+      data-header-theme="dark"
       id="services-cards"
-      className="flex w-full bg-neutral-50"
+      className="flex w-full bg-neutral-900"
     >
       <div className="container mx-auto flex w-full flex-col gap-12 px-6 py-28 md:py-36">
         {/* Header */}
         <div className="flex max-w-2xl flex-col gap-3">
-          <HeadingTitle>
+          <HeadingTitle className="text-neutral-50">
             O que <br />
             fazemos
           </HeadingTitle>
@@ -99,18 +99,14 @@ export function Services() {
                 }
               >
                 <div
-                  className={`
+                  className="
                     group flex min-h-96 flex-col gap-4 px-6 py-8
                     transition-colors duration-200
                     border
                     md:-mt-px md:-ml-px md:min-h-96 md:rounded-none
-                    ${service.featured
-                      ? "bg-blue-950"
-                      : "border-neutral-200/70 bg-neutral-50 hover:bg-neutral-100"
-                    }
-                  `}
+                    border-neutral-700 bg-neutral-900 md:hover:bg-neutral-950"
                 >
-                  {/* Number */}
+                  {/* Number
                   <span
                     className={`font-unbounded text-xl font-medium tracking-widest ${
                       service.featured
@@ -119,13 +115,11 @@ export function Services() {
                     }`}
                   >
                     {service.number}
-                  </span>
+                  </span> */}
 
                   {/* Title */}
                   <h3
-                    className={`text-xl font-semibold ${
-                      service.featured ? "text-neutral-50" : "text-foreground"
-                    }`}
+                    className="text-lg font-semibold text-neutral-50"
                   >
                     {service.title}
                   </h3>
@@ -145,11 +139,11 @@ export function Services() {
                       <span
                         key={tag}
                         className={`
-                          rounded-full border px-3 py-1 text-xs font-medium
+                          border px-3 py-1 text-xs font-medium
                           flex items-center
                           ${service.featured
-                            ? "border-muted-foreground text-neutral-400"
-                            : "border-muted-foreground text-muted-foreground"
+                            ? "border-neutral-600 text-neutral-400"
+                            : "border-neutral-600 text-muted-foreground"
                           }
                         `}
                       >

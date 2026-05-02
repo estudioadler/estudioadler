@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { InfoIcon, LightningIcon, MagnifyingGlassIcon, PenIcon, ResizeIcon, ShieldCheckIcon, SparkleIcon, TargetIcon } from "@phosphor-icons/react/dist/ssr"
 import HeadingTitle from "./heading-title"
+import { ArrowRightIcon } from "@phosphor-icons/react"
 
 const FEATURES = [
   {
@@ -76,7 +77,7 @@ export function Features() {
                   "w-full flex items-center gap-3 px-0 py-4 pr-8 border-b border-neutral-800 text-left transition-colors duration-150 cursor-pointer group",
                   active === i
                     ? "text-neutral-50"
-                    : "text-neutral-500 hover:text-neutral-300",
+                    : "text-neutral-500 hover:text-neutral-300 hover:bg-neutral-900",
                 ].join(" ")}
               >
                 <span
@@ -89,7 +90,7 @@ export function Features() {
                 </span>
                 <span className="font-medium text-sm">{feature.title}</span>
                 {active === i && (
-                  <span className="ml-auto text-neutral-500 text-xs">→</span>
+                  <ArrowRightIcon size={16} weight="bold" className="ml-auto text-neutral-50" />
                 )}
               </button>
             ))}

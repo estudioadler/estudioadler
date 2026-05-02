@@ -86,6 +86,7 @@ export default function LandingPagesPage() {
           </>
         }
         subtitle="Landing pages diretas ao ponto, criadas para transformar visitante em cliente."
+        buttontext="Solicitar orçamento"
       />
 
       {/* O QUE É */}

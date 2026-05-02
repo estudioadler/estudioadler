@@ -26,7 +26,7 @@ const faqs = [
       "Absolutamente. Implementamos certificados SSL, boas práticas de segurança e atualizações regulares para manter seu site protegido contra vulnerabilidades.",
   },
   {
-    question: "Existe algum tipo de manutenção que devo pagar para a agência?",
+    question: "Existe suporte após o lançamento do site?",
     answer:
       "Oferecemos planos de manutenção opcionais que incluem atualizações de segurança, backups e suporte técnico. Você escolhe o plano que melhor se adapta à sua necessidade.",
   },
@@ -51,7 +51,7 @@ export default function FAQ() {
               de sites, e-commerces e landing pages. Esclareça suas perguntas
               e tome decisões informadas para o sucesso do seu projeto digital.
             </p>
-            <BaseButton text="Quero uma proposta" />
+            <BaseButton text="Tire suas dúvidas" href="/orcamento" />
           </div>
         </div>
 

@@ -53,7 +53,7 @@ export function RecentProjects() {
             </p>
           </div>
 
-          <BaseButton text="Todos os projetos" variant="dark" />
+          <BaseButton text="Todos os projetos" variant="dark" href="/portfolio" />
         </div>
 
         {/* Grid de projetos */}
@@ -65,12 +65,12 @@ export function RecentProjects() {
                 className="group flex flex-col gap-3"
               >
                 {/* Card sem padding e sem cor de fundo */}
-                <div className="relative overflow-hidden aspect-square">
+                <div className="relative overflow-hidden aspect-square outline outline-neutral-400">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    className="object-cover "
                   />
                 </div>
 

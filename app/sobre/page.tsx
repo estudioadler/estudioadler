@@ -1,6 +1,7 @@
+import { BaseButton } from "@/components/base-button"
+import HeadingTitle from "@/components/heading-title"
 import { PageHero } from "@/components/page-hero"
 import type { Metadata } from "next"
-import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Sobre",
@@ -31,11 +32,31 @@ const jsonLd = {
 }
 
 const etapas = [
-  { numero: "01", label: "Briefing e diagnóstico", desc: "Entendemos o contexto e os objetivos" },
-  { numero: "02", label: "UX/UI — estrutura e visual", desc: "Desenhamos a experiência completa" },
-  { numero: "03", label: "Desenvolvimento", desc: "Transformamos design em código" },
-  { numero: "04", label: "Revisão e entrega", desc: "Ajustes finais e publicação" },
-  { numero: "05", label: "Suporte pós-lançamento", desc: "Acompanhamento contínuo" },
+  {
+    numero: "01",
+    label: "Briefing e diagnóstico",
+    desc: "Entendemos o contexto e os objetivos",
+  },
+  {
+    numero: "02",
+    label: "UX/UI — estrutura e visual",
+    desc: "Desenhamos a experiência completa",
+  },
+  {
+    numero: "03",
+    label: "Desenvolvimento",
+    desc: "Transformamos design em código",
+  },
+  {
+    numero: "04",
+    label: "Revisão e entrega",
+    desc: "Ajustes finais e publicação",
+  },
+  {
+    numero: "05",
+    label: "Suporte pós-lançamento",
+    desc: "Acompanhamento contínuo",
+  },
 ]
 
 export default function SobrePage() {
@@ -60,27 +81,26 @@ export default function SobrePage() {
       />
 
       {/* ── BLOCO 1: O estúdio ───────────────────────────── */}
-      <section className="bg-neutral-100 container mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
+      <section className="section-cut bg-neutral-100 px-6 py-24 md:px-12 md:py-32">
+        <div className="grid items-start gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo — eyebrow + título */}
-          <div className="flex flex-col gap-4 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:self-start">
             <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
               O estúdio
             </span>
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-neutral-950 uppercase md:text-4xl lg:text-5xl">
-              Criado para
-              <br />
+            <HeadingTitle className="text-neutral-950">
+              Criado <br />para
               fazer diferente.
-            </h2>
+            </HeadingTitle>
           </div>
 
           {/* Lado direito — texto */}
           <div className="flex flex-col gap-8 lg:col-span-6 lg:col-start-7">
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               O Estúdio Adler nasceu da convicção de que um site bem feito
-              precisa de dois olhares ao mesmo tempo: o do designer, que
-              entende de forma, hierarquia e percepção; e o do desenvolvedor,
-              que sabe transformar isso em algo que funciona de verdade.
+              precisa de dois olhares ao mesmo tempo: o do designer, que entende
+              de forma, hierarquia e percepção; e o do desenvolvedor, que sabe
+              transformar isso em algo que funciona de verdade.
             </p>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               A maioria dos projetos passa por mãos separadas — design de um
@@ -100,30 +120,27 @@ export default function SobrePage() {
       <section className="container mx-auto px-6 py-24 md:px-12 md:py-32">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo */}
-          <div className="flex flex-col gap-4 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
+          <div className="flex flex-col gap-4 lg:sticky lg:top-32 lg:col-span-5 lg:self-start">
             <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
               Como trabalhamos
             </span>
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-neutral-50 uppercase md:text-4xl lg:text-5xl">
-              Cada projeto tem
-              <br />
-              começo, meio
-              <br />e entrega.
-            </h2>
+            <HeadingTitle className="text-neutral-50">
+              Cada projeto tem começo, meio e entrega.
+            </HeadingTitle>
           </div>
 
           {/* Lado direito */}
           <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7">
             <div className="flex flex-col gap-6">
               <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
-                Nenhum projeto começa pelo código. Antes disso, o trabalho
-                passa por uma etapa de UX/UI — entender o contexto, mapear o
-                que precisa funcionar e definir como isso vai ser apresentado.
-                Só depois vem o desenvolvimento.
+                Nenhum projeto começa pelo código. Antes disso, o trabalho passa
+                por uma etapa de UX/UI — entender o contexto, mapear o que
+                precisa funcionar e definir como isso vai ser apresentado. Só
+                depois vem o desenvolvimento.
               </p>
               <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
-                Esse processo evita retrabalho, reduz surpresas e garante que
-                o que foi entregue faz sentido para quem vai usar.
+                Esse processo evita retrabalho, reduz surpresas e garante que o
+                que foi entregue faz sentido para quem vai usar.
               </p>
             </div>
 
@@ -150,26 +167,22 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* ── DIVISOR ──────────────────────────────────────── */}
-      <div className="container mx-auto px-6 md:px-12">
-        <hr className="border-neutral-800" />
-      </div>
 
       {/* ── BLOCO 3: O que entregamos ────────────────────── */}
-      <section className="bg-blue-950 container mx-auto px-6 py-24 md:px-12 md:py-32">
+      <section className="container mx-auto bg-neutral-900 px-6 py-24 md:px-12 md:py-32">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo */}
-          <div className="flex flex-col gap-4 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:self-start">
             <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
-              O que entregamos
+              O que entregamos?
             </span>
-            <h2 className="font-unbounded text-3xl font-normal leading-[1.1] tracking-[-0.03em] text-neutral-50 uppercase md:text-4xl lg:text-5xl">
+            <HeadingTitle className="text-neutral-50">
               Sites.
               <br />
               De todos
               <br />
               os tipos.
-            </h2>
+            </HeadingTitle>
           </div>
 
           {/* Lado direito */}
@@ -177,8 +190,8 @@ export default function SobrePage() {
             <div className="flex flex-col gap-6">
               <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
                 Sites institucionais, e-commerces, landing pages e páginas de
-                vendas — com design pensado e código feito à mão. Sem
-                templates prontos, sem atalhos que comprometem o resultado.
+                vendas — com design pensado e código feito à mão. Sem templates
+                prontos, sem atalhos que comprometem o resultado.
               </p>
               <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
                 Para cada tipo de projeto, existe um processo adequado. O que
@@ -186,15 +199,7 @@ export default function SobrePage() {
               </p>
             </div>
 
-            <Link
-              href="/servicos"
-              className="group inline-flex w-fit items-center gap-3 border border-neutral-800 px-6 py-3 text-sm font-medium text-neutral-50 transition-all hover:border-blue-950 hover:bg-blue-950/10"
-            >
-              Ver serviços
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
+            <BaseButton variant="light" text="Veja nossos trabalhos" href="/portfolio" />
           </div>
         </div>
       </section>

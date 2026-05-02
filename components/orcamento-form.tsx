@@ -31,6 +31,7 @@ import {
   CONTATOS,
   type OrcamentoFormData,
 } from "@/lib/validations/orcamento"
+import { LinkHoverCard } from "./link-hover-card"
 
 export function OrcamentoForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -131,31 +132,36 @@ export function OrcamentoForm() {
               {SERVICOS.map((s) => {
                 const checked = field.value.includes(s.id)
                 return (
-                  <label
+                  // Each checkbox option gets a hover card showing the service label
+                  <LinkHoverCard
                     key={s.id}
-                    className={cn(
-                      "flex items-center gap-3 w-fit border px-4 py-3 cursor-pointer transition-all duration-150",
-                      checked
-                        ? "border-neutral-900 bg-neutral-900 text-white"
-                        : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400"
-                    )}
+                    label={checked ? `Remover: ${s.label}` : `Selecionar: ${s.label}`}
                   >
-                    <Checkbox
-                      checked={checked}
-                      onCheckedChange={(isChecked) => {
-                        const newValue = isChecked
-                          ? [...field.value, s.id]
-                          : field.value.filter((v) => v !== s.id)
-                        field.onChange(newValue)
-                      }}
+                    <label
                       className={cn(
-                        "border-neutral-400",
-                        checked &&
-                          "border-white data-[state=checked]:bg-white data-[state=checked]:text-neutral-900"
+                        "flex items-center gap-3 w-fit border px-4 py-3 cursor-pointer transition-all duration-150",
+                        checked
+                          ? "border-neutral-900 bg-neutral-900 text-white"
+                          : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400"
                       )}
-                    />
-                    <span className="text-sm font-medium">{s.label}</span>
-                  </label>
+                    >
+                      <Checkbox
+                        checked={checked}
+                        onCheckedChange={(isChecked) => {
+                          const newValue = isChecked
+                            ? [...field.value, s.id]
+                            : field.value.filter((v) => v !== s.id)
+                          field.onChange(newValue)
+                        }}
+                        className={cn(
+                          "border-neutral-400",
+                          checked &&
+                            "border-white data-[state=checked]:bg-white data-[state=checked]:text-neutral-900"
+                        )}
+                      />
+                      <span className="text-sm font-medium">{s.label}</span>
+                    </label>
+                  </LinkHoverCard>
                 )
               })}
             </div>
@@ -174,18 +180,21 @@ export function OrcamentoForm() {
               Você já possui uma verba disponível para o projeto?{" "}
               <span className="text-rose-500">*</span>
             </FieldLabel>
-            <Select onValueChange={field.onChange} value={field.value}>
-              <SelectTrigger className="h-11 rounded-xl border-neutral-200">
-                <SelectValue placeholder="Selecione" />
-              </SelectTrigger>
-              <SelectContent>
-                {VERBAS.map((v) => (
-                  <SelectItem key={v.value} value={v.value}>
-                    {v.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {/* Wrap the SelectTrigger with hover card */}
+            <LinkHoverCard label="Selecionar verba">
+              <Select onValueChange={field.onChange} value={field.value}>
+                <SelectTrigger className="h-11 rounded-xl border-neutral-200">
+                  <SelectValue placeholder="Selecione" />
+                </SelectTrigger>
+                <SelectContent>
+                  {VERBAS.map((v) => (
+                    <SelectItem key={v.value} value={v.value}>
+                      {v.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </LinkHoverCard>
             <FieldError errors={[errors.verba]} />
           </Field>
         )}
@@ -243,18 +252,21 @@ export function OrcamentoForm() {
               Como deseja manter o contato?{" "}
               <span className="text-rose-500">*</span>
             </FieldLabel>
-            <Select onValueChange={field.onChange} value={field.value}>
-              <SelectTrigger className="h-12 rounded-xl border-neutral-200">
-                <SelectValue placeholder="Selecione" />
-              </SelectTrigger>
-              <SelectContent>
-                {CONTATOS.map((c) => (
-                  <SelectItem key={c.value} value={c.value}>
-                    {c.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {/* Wrap the SelectTrigger with hover card */}
+            <LinkHoverCard label="Selecionar canal de contato">
+              <Select onValueChange={field.onChange} value={field.value}>
+                <SelectTrigger className="h-12 rounded-xl border-neutral-200">
+                  <SelectValue placeholder="Selecione" />
+                </SelectTrigger>
+                <SelectContent>
+                  {CONTATOS.map((c) => (
+                    <SelectItem key={c.value} value={c.value}>
+                      {c.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </LinkHoverCard>
             <FieldError errors={[errors.contato]} />
           </Field>
         )}
@@ -345,20 +357,26 @@ export function OrcamentoForm() {
         <p className="text-sm text-rose-500">{errors.root.message}</p>
       )}
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full h-12 bg-neutral-900 hover:bg-neutral-800 text-white font-medium rounded-none"
+      {/* Button com hover card */}
+      <LinkHoverCard
+        label={isSubmitting ? "Aguarde..." : "Enviar mensagem"}
+        icon="arrow-diagonal"
       >
-        {isSubmitting ? (
-          <span className="flex items-center gap-2">
-            <Spinner className="w-4 h-4" />
-            Enviando...
-          </span>
-        ) : (
-          "Enviar mensagem"
-        )}
-      </Button>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full h-12 bg-neutral-900 hover:bg-neutral-800 text-white font-medium rounded-none"
+        >
+          {isSubmitting ? (
+            <span className="flex items-center gap-2">
+              <Spinner className="w-4 h-4" />
+              Enviando...
+            </span>
+          ) : (
+            "Enviar mensagem"
+          )}
+        </Button>
+      </LinkHoverCard>
     </form>
   )
 }

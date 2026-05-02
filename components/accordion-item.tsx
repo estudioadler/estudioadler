@@ -52,7 +52,7 @@ export default function AccordionItem({
     >
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between py-5 text-left"
+        className="flex w-full items-center justify-between gap-4 py-4 text-left"
       >
         <span
           className={`text-base transition-colors ${

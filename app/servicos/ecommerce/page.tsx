@@ -86,6 +86,7 @@ export default function EcommercePage() {
           </>
         }
         subtitle="E-commerces desenvolvidos para vender — não só para existir."
+        buttontext="Solicitar orçamento"
       />
 
       {/* O QUE É */}

@@ -17,28 +17,22 @@ export function FloatingActions() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
   return (
-    <div className="fixed bottom-6 right-6 md:bottom-14 md:right-14  z-30 flex items-center">
-
+    <div className="fixed right-6 bottom-6 z-30 flex items-center md:right-14 md:bottom-14">
       {/* BOTÃO PRINCIPAL — empurrado pelo scroll quando ele surge */}
-      <BaseButton
-        variant="dark"
-        text="Quero uma proposta"
-        onClick={() => (window.location.href = "/orcamento")}
-      />
+      <BaseButton variant="dark" text="Quero uma proposta" href="/orcamento" />
 
       {/* SCROLL TO TOP — surge da direita e empurra o botão */}
       <div
-        className={`transition-all duration-300 overflow-hidden flex justify-end ${
+        className={`flex justify-end overflow-hidden transition-all duration-300 ${
           visible
             ? "w-14 opacity-100"
-            : "w-0 opacity-0 ml-0 pointer-events-none"
+            : "pointer-events-none ml-0 w-0 opacity-0"
         }`}
       >
         <LinkHoverCard label="Voltar ao topo" icon="arrow-right">
           <ScrollToTopButton onClick={scrollToTop} variant="dark" />
         </LinkHoverCard>
       </div>
-
     </div>
   )
 }

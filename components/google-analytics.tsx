@@ -1,13 +1,16 @@
+import Script from "next/script"
+
 export function GoogleAnalytics() {
   const GA_ID = "G-G9LE6P8NSF"
 
   return (
     <>
-      <script
+      <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
       />
-      <script
+      <Script
+        id="google-analytics"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
