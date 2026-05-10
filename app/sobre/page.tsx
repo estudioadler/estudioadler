@@ -81,7 +81,7 @@ export default function SobrePage() {
       />
 
       {/* ── BLOCO 1: O estúdio ───────────────────────────── */}
-      <section className="section-cut bg-neutral-100 px-6 py-24 md:px-12 md:py-32">
+      <section className="bg-neutral-100 px-6 py-24 md:px-12 md:py-32">
         <div className="grid items-start gap-16 lg:grid-cols-12 lg:gap-8">
           {/* Lado esquerdo — eyebrow + título */}
           <div className="flex flex-col gap-4 lg:col-span-5 lg:self-start">

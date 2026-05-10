@@ -24,7 +24,7 @@ export default function ColumnWipe() {
       {Array.from({ length: COUNT }).map((_, i) => (
         <div
           key={i}
-          className="col-wipe bg-blue-950"
+          className="col-wipe bg-blue-600"
           style={{
             width: isMobile ? "100%" : "100%",
             height: isMobile ? "100%" : "100%",

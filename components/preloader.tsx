@@ -58,7 +58,7 @@ export default function Preloader() {
   return (
     <div
       ref={wrapperRef}
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-neutral-950"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-blue-600"
     >
       <svg
         viewBox="0 0 300 80"

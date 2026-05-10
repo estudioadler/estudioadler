@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 import { BaseButton } from "./base-button"
 
+
 interface PageHeroProps {
   title: ReactNode
   subtitle?: string
@@ -10,15 +11,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle, eyebrow, buttontext }: PageHeroProps) {
   return (
-    <section className="relative flex min-h-[60vh] flex-col justify-center overflow-hidden">
-      
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero-bg.avif')" }}
-      />
-
-      
+    <section className="relative flex min-h-[60vh] flex-col justify-center overflow-hidden">   
 {/* Overlay com gradiente (topo mais escuro) */}
       <div className="absolute inset-0 bg-linear-to-b from-neutral-950/60 via-neutral-950/50 to-neutral-950/30" />
 

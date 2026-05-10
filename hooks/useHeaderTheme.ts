@@ -9,10 +9,13 @@ function getThemeAtPoint(x: number, y: number): HeaderTheme {
   const elements = document.elementsFromPoint(x, y)
 
   for (const el of elements) {
+    // Ignora o header e qualquer coisa dentro dele
     if (el.closest("[data-header]")) continue
+    // Ignora o próprio elemento se tiver data-header
+    if (el.hasAttribute("data-header")) continue
 
-    const theme = el.closest("[data-header-theme]")
-      ?.getAttribute("data-header-theme") as HeaderTheme | null
+    const themed = el.closest("[data-header-theme]")
+    const theme = themed?.getAttribute("data-header-theme") as HeaderTheme | null
 
     if (theme === "light" || theme === "dark") return theme
   }

@@ -1,52 +1,90 @@
-import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr"
+// base-button.tsx
+"use client"
+
+import { useRef, useEffect, useState } from "react"
 import { LinkHoverCard } from "./link-hover-card"
-import CustomLink from "./custom-link" // ajuste o path conforme seu projeto
+import CustomLink from "./custom-link"
+import { ButtonLarge } from "./button-large"
+import { ButtonSmall } from "./button-small"
+import gsap from "gsap"
 
 interface BaseButtonProps {
-  onClick?: () => void
   text: string
-  variant?: "dark" | "light"
+  label?: string
+  variant?: "dark" | "light" | "blue"
   href?: string
   onClickDelay?: number
+  compact?: boolean
 }
 
 export function BaseButton({
-  onClick,
   text,
-  variant = "dark",
+  label = "Quero uma proposta",
+  variant = "blue",
   href,
   onClickDelay,
+  compact = false,
 }: BaseButtonProps) {
-  const styles = {
-    dark: "bg-neutral-950 text-neutral-50",
-    light: "bg-neutral-50 text-neutral-950",
-  }
-
-  const inner = (
-    <button
-      onClick={!href ? onClick : undefined}
-      className={`${styles[variant]} group relative inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden border-l-2 border-neutral-950 px-4 py-3 text-sm font-medium uppercase outline transition`}
-    >
-      <span>{text}</span>
-
-      <div className="relative h-5 w-5 overflow-hidden">
-        <div className="absolute transition-all duration-200 group-hover:translate-x-5 group-hover:-translate-y-5">
-          <ArrowUpRightIcon className="h-5 w-5" />
-          <ArrowUpRightIcon className="h-5 w-5 -translate-x-5" />
-        </div>
-      </div>
-    </button>
+  const activeVariantRef = useRef<"large" | "small">(compact ? "small" : "large")
+  const [activeVariant, setActiveVariant] = useState<"large" | "small">(
+    compact ? "small" : "large"
   )
+  const [animateIn, setAnimateIn] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+
+    const target = compact ? "small" : "large"
+    if (target === activeVariantRef.current) return
+
+    const currentEl = containerRef.current?.querySelector("[data-btn]")
+    if (currentEl) {
+      gsap.to(currentEl, {
+        scale: 0.85,
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.in",
+        onComplete: () => {
+          activeVariantRef.current = target
+          setActiveVariant(target)
+          setAnimateIn((v) => !v)
+        },
+      })
+    } else {
+      activeVariantRef.current = target
+      setActiveVariant(target)
+    }
+  }, [compact])
+
+  const button =
+    activeVariant === "large" ? (
+      <ButtonLarge
+        data-btn
+        text={text}
+        variant={variant}
+        animateIn={animateIn}
+      />
+    ) : (
+      <ButtonSmall
+        data-btn
+        text={text}
+        variant={variant}
+        animateIn={animateIn}
+      />
+    )
 
   return (
-    <LinkHoverCard label={text} icon="arrow-diagonal">
-      {href ? (
-        <CustomLink href={href} onClick={onClick} onClickDelay={onClickDelay}>
-          {inner}
-        </CustomLink>
-      ) : (
-        inner
-      )}
+    <LinkHoverCard label={label} icon="arrow-diagonal">
+      <CustomLink href={href ?? "#"} onClickDelay={onClickDelay}>
+        <div ref={containerRef}>
+          {button}
+        </div>
+      </CustomLink>
     </LinkHoverCard>
   )
 }

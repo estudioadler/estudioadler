@@ -12,19 +12,19 @@ const styles = {
   light: "bg-neutral-50 text-neutral-950",
 }
 
-export function ScrollToTopButton({ onClick, variant = "dark" }: ScrollToTopButtonProps) {
+export function ScrollToTopButton({
+  onClick,
+  variant = "dark",
+}: ScrollToTopButtonProps) {
   return (
     <LinkHoverCard label="Voltar ao topo" icon="arrow-right">
       <button
         onClick={onClick}
         aria-label="Voltar ao topo"
-        className={`${styles[variant]} cursor-pointer group relative inline-flex items-center justify-center overflow-hidden p-3 text-sm font-medium border border-neutral-600 transition`}
+        className={`${styles[variant]} group relative inline-flex cursor-pointer items-center justify-center overflow-hidden border border-neutral-600 size-12 text-sm font-medium transition`}
       >
-        <div className="relative h-5 w-5 overflow-hidden">
-          <div className="absolute transition-all duration-200 group-hover:-translate-y-8">
-            <ArrowUpIcon className="h-5 w-5" />
-            <ArrowUpIcon className="h-5 w-5 translate-y-3" />
-          </div>
+        <div className="relative size-6 overflow-hidden">
+          <ArrowUpIcon className="size-6" weight="light"/>
         </div>
       </button>
     </LinkHoverCard>

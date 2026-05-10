@@ -2,7 +2,7 @@ import { Manrope, Unbounded } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { Metadata } from "next"
-import Header from "@/components/header"
+import Header from "@/components/header/header"
 import { Footer } from "@/components/footer"
 import { Marquee } from "@/components/marquee"
 import { CTA } from "@/components/cta-section"
@@ -12,6 +12,7 @@ import { TransitionProvider } from "@/components/transition-provider"
 import TransitionReady from "@/components/transition-ready"
 import Preloader from "@/components/preloader"
 import { GoogleAnalytics } from "@/components/google-analytics"
+import { NoiseBackground } from "@/components/noise-background"
 
 
 
@@ -210,8 +211,11 @@ export default function RootLayout({
       </head>
       <body
   suppressHydrationWarning
-  className="bg-neutral-950 selection:bg-blue-950 selection:text-white"
+  className="bg-neutral-950 selection:bg-blue-600 selection:text-white"
 >
+<div className="fixed top-0 left-1/2 -translate-x-1/2 w-7xl max-w-[calc(100%-2rem)] h-full 
+  border-x border-neutral-500/15 mix-blend-difference pointer-events-none z-75" />
+  <NoiseBackground />
   <Preloader />
   <TransitionProvider>
     <TransitionReady />

@@ -1,5 +1,7 @@
-import { OrcamentoForm } from "@/components/orcamento-form";
-import type { Metadata } from "next";
+import { LinkHoverCard } from "@/components/link-hover-card"
+import { OrcamentoForm } from "@/components/orcamento-form"
+import type { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Orçamento",
@@ -12,25 +14,36 @@ export const metadata: Metadata = {
       "Preencha o formulário e vamos conversar sobre o seu projeto digital.",
     url: "https://estudioadler.com.br/orcamento",
   },
-};
+}
 
 export default function OrcamentoPage() {
   return (
     <main data-header-theme="light" className="min-h-screen bg-zinc-50">
       <div className="container mx-auto px-6 py-28 md:py-0">
-
         {/* Mobile: empilhado | Desktop: duas colunas com sticky à esquerda */}
         <div className="flex flex-col gap-16 md:flex-row md:gap-0">
-
           {/* ── Coluna esquerda: sticky no desktop ── */}
           <div className="md:w-1/2">
-            <div className="md:sticky md:top-0 md:h-screen md:flex md:flex-col md:justify-center">
+            <div className="md:sticky md:top-0 md:flex md:h-screen md:flex-col md:justify-center">
               <div className="max-w-lg">
-                <h1 className="font-unbounded text-3xl sm:text-4xl md:text-5xl leading-none tracking-[-0.04em] font-medium uppercase">
+                <h1 className="font-unbounded text-3xl leading-none font-medium tracking-[-0.04em] uppercase sm:text-4xl md:text-5xl">
                   Vamos falar sobre o seu projeto?
                 </h1>
                 <p className="mt-4 max-w-md text-zinc-600">
                   Preencha o formulário e entraremos em contato com você.
+                </p>
+                <p className="mt-6 text-sm text-zinc-400">
+                  Prefere contato direto?{" "}
+                  <LinkHoverCard label="Me contate pelo WhatsApp" icon="arrow-right">
+                  <Link
+                    href="https://wa.me/5531999999999?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-600 underline underline-offset-4 transition-colors hover:text-zinc-950"
+                  >
+                    Me contate pelo WhatsApp
+                  </Link>
+                  </LinkHoverCard>
                 </p>
               </div>
             </div>
@@ -40,9 +53,8 @@ export default function OrcamentoPage() {
           <div className="pb-28 md:w-1/2 md:pt-44 md:pb-44">
             <OrcamentoForm />
           </div>
-
         </div>
       </div>
     </main>
-  );
+  )
 }

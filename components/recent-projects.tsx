@@ -1,8 +1,16 @@
+import { ReactNode } from "react"
 import HeadingTitle from "./heading-title"
 import Link from "next/link"
 import Image from "next/image"
 import { LinkHoverCard } from "./link-hover-card"
 import { BaseButton } from "./base-button"
+
+interface RecentProjectsProps {
+  eyebrow?: string
+  title?: ReactNode
+  subtitle?: string
+  hideButton?: boolean
+}
 
 const PROJECTS = [
   {
@@ -31,64 +39,94 @@ const PROJECTS = [
   },
 ]
 
-export function RecentProjects() {
+export function RecentProjects({
+  eyebrow,
+  title,
+  subtitle,
+  hideButton = false,
+}: RecentProjectsProps) {
   return (
     <section
       data-header-theme="light"
       id="recent-projects"
-      className="flex w-full bg-neutral-100"
+      className="relative w-full bg-neutral-100"
     >
-      <div className="container mx-auto flex w-full flex-col gap-12 px-6 py-28 md:py-36">
+      <div className="mx-auto w-full max-w-7xl">
+        {/* Linhas verticais */}
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-full max-w-7xl -translate-x-1/2 md:grid md:grid-cols-4">
+          <div className="border-r border-neutral-500/15" />
+          <div className="border-r border-neutral-500/15" />
+          <div className="border-r border-neutral-500/15" />
+          <div />
+        </div>
 
         {/* Header */}
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div className="flex max-w-2xl flex-col gap-3">
-            <HeadingTitle>
-              Projetos <br />
-              recentes
+        <div className="relative grid grid-cols-1 pt-24 pb-12 md:grid-cols-4 md:pt-24 md:pb-0">
+          <div className="col-span-2 flex flex-col gap-4 px-8 pb-8 md:px-8">
+            {eyebrow && (
+              <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
+                {eyebrow}
+              </span>
+            )}
+            <HeadingTitle className="text-neutral-950">
+              {title ?? (
+                <>
+                  Projetos <br />recentes
+                </>
+              )}
             </HeadingTitle>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              Uma seleção dos trabalhos que entregamos — cada um com um
-              desafio diferente e resultado mensurável para o cliente.
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              {subtitle ?? "Uma seleção dos trabalhos que entregamos — cada um com um desafio diferente e resultado mensurável para o cliente."}
             </p>
           </div>
 
-          <BaseButton text="Todos os projetos" variant="dark" href="/portfolio" />
+          {!hideButton && (
+            <div className="col-start-1 flex items-start justify-start px-8 pb-8">
+              <BaseButton
+                text="Todos os projetos"
+                variant="dark"
+                href="/portfolio"
+                compact
+                
+              />
+            </div>
+          )}
         </div>
+      </div>
 
-        {/* Grid de projetos */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {/* Linha topo — full width */}
+      <div className="w-full border-t border-neutral-500/15" />
+
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="relative grid grid-cols-1 md:grid-cols-4">
           {PROJECTS.map((project) => (
-            <LinkHoverCard key={project.slug} label="Ver projeto" icon="arrow-diagonal">
-              <Link
-                href={`/projetos/${project.slug}`}
-                className="group flex flex-col gap-3"
-              >
-                {/* Card sem padding e sem cor de fundo */}
-                <div className="relative overflow-hidden aspect-square outline outline-neutral-400">
+            <LinkHoverCard
+              key={project.slug}
+              label="Ver projeto"
+              icon="arrow-diagonal"
+            >
+              <div className="px-5 py-0.5 md:p-1">
+                <Link
+                  href={`/projetos/${project.slug}`}
+                  className="group relative block aspect-square overflow-hidden border-b border-neutral-500/15 bg-neutral-200 md:bg-transparent"
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover "
+                    className="object-cover"
                   />
-                </div>
-
-                {/* Título e categoria fora do card */}
-                <div className="flex flex-col gap-0.5 px-1">
-                  <span className="text-xs font-medium text-muted-foreground tracking-widest">
-                    {project.category}
-                  </span>
-                  <h3 className="text-md uppercase font-unbounded font-normal text-foreground leading-tight">
-                    {project.title}
-                  </h3>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </LinkHoverCard>
           ))}
         </div>
-
       </div>
+
+      {/* Linha fim — full width */}
+      <div className="w-full border-t border-neutral-500/15" />
+
+      <div className="pb-28 md:pb-44" />
     </section>
   )
 }

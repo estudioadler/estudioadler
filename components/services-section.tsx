@@ -1,6 +1,15 @@
 import HeadingTitle from "./heading-title"
 
-const SERVICES = [
+type Service = {
+  number: string
+  title: string
+  description: string
+  tags: string[]
+  featured: boolean
+  empty?: boolean
+}
+
+const SERVICES: Service[] = [
   {
     number: "01",
     title: "Sites Institucionais",
@@ -51,112 +60,155 @@ const SERVICES = [
   },
 ]
 
-const NUM_CARDS = SERVICES.length
+const SERVICES_GRID: Service[] = [
+  {
+    number: "",
+    title: "",
+    description: "",
+    tags: [],
+    featured: false,
+    empty: true,
+  }, // linha 1 — vazio
+  SERVICES[0], // 01
+  SERVICES[1], // 02
+  SERVICES[2], // 03
+  {
+    number: "",
+    title: "",
+    description: "",
+    tags: [],
+    featured: false,
+    empty: true,
+  }, // linha 2 — vazio
+  SERVICES[3], // 04
+  SERVICES[4], // 05
+  SERVICES[5], // 06
+]
 
 export function Services() {
   return (
     <section
-      data-header-theme="dark"
+      data-header-theme="light"
       id="services-cards"
-      className="flex w-full bg-neutral-900"
+      className="relative w-full bg-neutral-50"
     >
-      <div className="container mx-auto flex w-full flex-col gap-12 px-6 py-28 md:py-36">
-        {/* Header */}
-        <div className="flex max-w-2xl flex-col gap-3">
-          <HeadingTitle className="text-neutral-50">
-            O que <br />
-            fazemos
-          </HeadingTitle>
-          <p className="text-base leading-relaxed text-muted-foreground">
-            Do primeiro site ao crescimento contínuo, cobrimos cada etapa do seu
-            negócio digital — com estratégia, técnica e acompanhamento real.
-          </p>
+      <div className="mx-auto w-full max-w-7xl">
+        {/* Linhas verticais */}
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-full max-w-7xl -translate-x-1/2 md:grid md:grid-cols-4">
+          <div className="border-r border-neutral-500/15" />
+          <div className="border-r border-neutral-500/15" />
+          <div className="border-r border-neutral-500/15" />
+          <div />
         </div>
 
-        {/* Cards */}
-        <div
-          className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-0 lg:grid-cols-3"
-          style={{ "--numcards": NUM_CARDS } as React.CSSProperties}
-        >
-          {SERVICES.map((service, i) => {
-            const index = i + 1
-            const index0 = index - 1
-            const reverseIndex = NUM_CARDS - index0
+        {/* Header */}
+        <div className="relative grid grid-cols-1 pt-24 md:grid-cols-4 md:pt-24 md:pb-0">
+          <div className="col-span-2 flex flex-col gap-3 px-8 pb-16 md:px-8">
+            <HeadingTitle className="text-neutral-950">
+              O que <br />
+              fazemos
+            </HeadingTitle>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Do primeiro site ao crescimento contínuo, cobrimos cada etapa do
+              seu negócio digital — com estratégia, técnica e acompanhamento
+              real.
+            </p>
+          </div>
+        </div>
+      </div>
 
-            return (
-              <div
-                key={service.number}
-                className="service-card-wrapper -mb-16 pt-20 md:mb-0 md:pt-0"
-                style={
-                  {
-                    top: `${index0 * 24}px`,
-                    "--index": index,
-                    "--index0": index0,
-                    "--reverse-index": reverseIndex,
-                    "--range-start": `${(index0 / NUM_CARDS) * 100}%`,
-                    "--range-end": `${(index / NUM_CARDS) * 100}%`,
-                  } as React.CSSProperties
-                }
-              >
-                <div
-                  className="
-                    group flex min-h-96 flex-col gap-4 px-6 py-8
-                    transition-colors duration-200
-                    border
-                    md:-mt-px md:-ml-px md:min-h-96 md:rounded-none
-                    border-neutral-700 bg-neutral-900 md:hover:bg-neutral-950"
-                >
-                  {/* Number
-                  <span
-                    className={`font-unbounded text-xl font-medium tracking-widest ${
-                      service.featured
-                        ? "text-neutral-50"
-                        : "text-muted-foreground"
-                    }`}
-                  >
+      {/* Linha topo — full width */}
+      <div className="w-full border-t border-neutral-500/15" />
+
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="relative grid grid-cols-1 md:grid-cols-4">
+          {SERVICES_GRID.slice(0, 4).map((service, i) => (
+            <div
+              key={service.number || `empty-row1-${i}`}
+              className={[
+                "flex min-h-80 flex-col gap-4 border-b border-neutral-500/15 px-8 py-8 md:border-none",
+                "mx-4 md:mx-0", // respeita a borda lateral do layout no mobile
+                service.empty
+                  ? "hidden md:flex"
+                  : "bg-neutral-100 transition-colors duration-200 hover:bg-neutral-100 md:bg-transparent",
+              ].join(" ")}
+            >
+              {!service.empty && (
+                <>
+                  <span className="text-xs text-neutral-600">
                     {service.number}
-                  </span> */}
-
-                  {/* Title */}
-                  <h3
-                    className="text-lg font-semibold text-neutral-50"
-                  >
+                  </span>
+                  <h3 className="text-xl font-semibold text-neutral-950">
                     {service.title}
                   </h3>
-
-                  {/* Description */}
-                  <p
-                    className={`flex-1 text-sm leading-relaxed ${
-                      service.featured ? "text-neutral-400" : "text-muted-foreground"
-                    }`}
-                  >
+                  <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-
-                  {/* Tags */}
                   <div className="mt-2 flex flex-wrap gap-2">
                     {service.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`
-                          border px-3 py-1 text-xs font-medium
-                          flex items-center
-                          ${service.featured
-                            ? "border-neutral-600 text-neutral-400"
-                            : "border-neutral-600 text-muted-foreground"
-                          }
-                        `}
+                        className="border border-neutral-500/15 bg-background px-2 py-1 text-xs font-medium text-neutral-400"
                       >
                         + {tag}
                       </span>
                     ))}
                   </div>
-                </div>
-              </div>
-            )
-          })}
+                </>
+              )}
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Linha meio — full width */}
+      <div className="w-full border-t border-neutral-500/15" />
+
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="relative grid grid-cols-1 md:grid-cols-4">
+          {SERVICES_GRID.slice(4).map((service, i) => (
+            <div
+              key={service.number || `empty-row1-${i}`}
+              className={[
+                "flex min-h-80 flex-col gap-4 border-b border-neutral-500/15 px-8 py-8 md:border-none",
+                "mx-4 md:mx-0", // respeita a borda lateral do layout no mobile
+                service.empty
+                  ? "hidden md:flex"
+                  : "bg-neutral-100 transition-colors duration-200 hover:bg-neutral-100 md:bg-transparent",
+              ].join(" ")}
+            >
+              {!service.empty && (
+                <>
+                  <span className="text-xs text-neutral-600">
+                    {service.number}
+                  </span>
+                  <h3 className="text-xl font-semibold text-neutral-950">
+                    {service.title}
+                  </h3>
+                  <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border border-neutral-500/15 bg-background px-2 py-1 text-xs font-medium text-neutral-400"
+                      >
+                        + {tag}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Linha fim — full width */}
+      <div className="w-full border-t border-neutral-500/15" />
+
+      <div className="pb-28 md:pb-44" />
     </section>
   )
 }

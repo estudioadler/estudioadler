@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
@@ -36,6 +36,13 @@ import { LinkHoverCard } from "./link-hover-card"
 export function OrcamentoForm() {
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const successRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+  if (submitted && successRef.current) {
+    successRef.current.scrollIntoView({ behavior: "smooth", block: "center" })
+  }
+}, [submitted])
 
   const {
     control,
@@ -91,7 +98,7 @@ export function OrcamentoForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-center gap-4">
+      <div ref={successRef} className="flex flex-col items-center justify-center py-20 text-center gap-4">
         <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
           <svg
             className="w-8 h-8 text-emerald-600"

@@ -28,64 +28,84 @@ const steps: Step[] = [
     tags: ["Validação", "Publicação"],
   },
 ]
+
 export default function Methodology() {
   return (
-    <section data-header-theme="dark" className="w-full bg-neutral-950">
-      <div className="container mx-auto px-6 py-24 md:py-32">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
+    <section data-header-theme="dark" className="relative w-full bg-neutral-950">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-full max-w-7xl -translate-x-1/2 md:grid md:grid-cols-4">
+          <div className="border-r border-neutral-500/15" />
+          <div className="border-r border-neutral-500/15" />
+          <div className="border-r border-neutral-500/15" />
+          <div />
+        </div>
 
-          {/* Lado esquerdo — sticky */}
-          <div className="flex flex-col gap-4 lg:top-32 lg:col-span-5 lg:self-start">
-            <span className="font-mono text-xs tracking-[0.2em] text-neutral-500 uppercase">
-              Metodologia
-            </span>
+        <div className="relative grid grid-cols-1 pt-24 pb-0 md:grid-cols-4 md:pt-24 md:pb-0">
+          <div className="col-span-2 flex flex-col gap-3 px-8 pb-16 md:px-8">
             <HeadingTitle className="text-neutral-50">
-              Como <br /> trabalhamos
+              Como <br />trabalhamos
             </HeadingTitle>
-          </div>
-
-          {/* Lado direito */}
-          <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7 lg:self-start">
-            <div className="flex flex-col gap-6">
-              <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
-                Um processo estruturado para garantir clareza em cada etapa,
-                evitar retrabalho e manter consistência do início ao fim.
-              </p>
-              <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
-                Nenhum projeto começa pelo código. Antes disso, o trabalho passa
-                por uma etapa de UX/UI — entender o contexto, mapear o que
-                precisa funcionar e só depois vem o desenvolvimento.
-              </p>
-            </div>
-
-            <ol className="flex flex-col">
-              {steps.map((step) => (
-                <li
-                  key={step.id}
-                  className="group grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 border-t border-neutral-800 px-2 py-6 transition-colors last:border-b hover:bg-neutral-900/50"
-                >
-                  <span className="row-span-2 flex size-10 items-center justify-center rounded-full border border-neutral-800 font-mono text-xs text-neutral-500 transition-colors group-hover:border-blue-950 group-hover:text-neutral-50">
-                    {String(step.id).padStart(2, "0")}
-                  </span>
-                  <span className="self-end text-sm font-medium text-neutral-50 md:text-base">
-                    {step.title}
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {step.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-neutral-800 px-2.5 py-0.5 font-mono text-[11px] text-neutral-500 transition-colors group-hover:border-neutral-700 group-hover:text-neutral-400"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <p className="text-lg leading-relaxed text-neutral-400">
+              Um processo estruturado para garantir clareza em cada etapa,
+              evitar retrabalho e manter consistência do início ao fim.
+            </p>
           </div>
         </div>
       </div>
+
+      <div className="w-full border-t border-neutral-500/15" />
+
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="relative flex flex-col">
+          {steps.map((step) => (
+            <div
+              key={step.id}
+              className="group grid grid-cols-1 md:grid-cols-4 border-b border-neutral-500/15 transition-colors duration-300 hover:bg-neutral-900/40"
+            >
+              {/* Coluna esquerda */}
+              <div className="hidden md:flex flex-col justify-between px-8 py-8 border-r border-neutral-500/15">
+                <span className="font-mono text-xs text-neutral-600 group-hover:text-blue-500 transition-colors duration-300">
+                  {String(step.id).padStart(2, "0")}
+                </span>
+                <span className="text-sm font-medium text-neutral-50">
+                  {step.title}
+                </span>
+              </div>
+
+              {/* Coluna direita */}
+              <div className="col-span-3 flex flex-col justify-center gap-6 px-8 py-8 mx-4 md:mx-0 bg-neutral-900 md:bg-transparent">
+                {/* mobile: número + título */}
+                <div className="flex items-center gap-3 md:hidden">
+                  <span className="font-mono text-xs text-blue-500">
+                    {String(step.id).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm font-medium text-neutral-50">
+                    {step.title}
+                  </span>
+                </div>
+
+                {/* tags */}
+                <div className="flex flex-wrap items-center gap-0">
+                  {step.tags.map((tag, j) => (
+                    <div key={tag} className="flex items-center">
+                      <span className="border border-neutral-500/15 px-3 py-1.5 text-xs font-mono text-neutral-400 group-hover:border-neutral-500/30 group-hover:text-neutral-300 transition-colors duration-300">
+                        {tag}
+                      </span>
+                      {j < step.tags.length - 1 && (
+                        <div className="h-px w-4 bg-neutral-500/20 group-hover:bg-blue-500/30 transition-colors duration-300" />
+                      )}
+                    </div>
+                  ))}
+                  <div className="h-px flex-1 bg-neutral-500/10 group-hover:bg-blue-500/20 transition-colors duration-300 min-w-4" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full border-t border-neutral-500/15" />
+      <div className="pb-28 md:pb-44" />
     </section>
   )
 }
