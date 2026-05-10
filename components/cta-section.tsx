@@ -1,7 +1,7 @@
 "use client"
 
 import { BaseButton } from "./base-button"
-import { ButtonSmall } from "./button-small"
+
 import HeadingTitle from "./heading-title"
 
 export function CTA() {
@@ -21,7 +21,7 @@ export function CTA() {
             alcançar o sucesso. Vamos começar agora mesmo!
           </p>
 
-          <ButtonSmall text="Quero uma proposta" href="/orcamento" />
+          <BaseButton text="Quero uma proposta" href="/orcamento" compact />
         </div>
       </div>
     </section>
